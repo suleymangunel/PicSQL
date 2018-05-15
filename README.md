@@ -13,17 +13,17 @@ PicSQL need SQLite and MySQL references,you can add its from Nuget in Visual Stu
 
 Working with DB's you have set attributes listed below.
 
-   <add key="dbDataSource_MSSQL" value="" /> MS SQL Server's IP Address/URL
-   <add key="dbInitialCatalog_MSSQL" value="" /> MS SQL DB name
-   <add key="dbUserID_MSSQL" value="" />
-   <add key="dbPassword_MSSQL" value="" />
-   <add key="dbImageTable_MSSQL" value="Image" />
-   <add key="dbDataSource_SQLite" value="" /> SQLite file location & filename
-   <add key="dbInitialCatalog_SQLite" value="" />
-   <add key="dbPassword_SQLite" value="" />
-   <add key="dbImageTable_SQLite" value="IMAGE" />
-   <add key="dbServer_MySQL" value="" /> MySQL's IP Address/URL
-   <add key="dbDatabase_MySQL" value="" /> MySQL DB name
-   <add key="dbUserID_MySQL" value="" />
-   <add key="dbPassword_MySQL" value="" />
-   <add key="dbImageTable_MySQL" value="image" />
+   "dbDataSource_MSSQL" value=""       MS SQL Server's IP Address/URL
+   "dbInitialCatalog_MSSQL" value=""   MS SQL DB name
+   "dbUserID_MSSQL" value=""
+   "dbPassword_MSSQL" value=""
+   "dbImageTable_MSSQL" value="Image"
+   "dbDataSource_SQLite" value="" />   SQLite file location & filename
+   "dbInitialCatalog_SQLite" value=""
+   "dbPassword_SQLite" value=""
+   "dbImageTable_SQLite" value="IMAGE"
+   "dbServer_MySQL" value=""           MySQL's IP Address/URL
+   "dbDatabase_MySQL" value=""         MySQL DB name
+   "dbUserID_MySQL" value=""
+   "dbPassword_MySQL" value=""
+   "dbImageTable_MySQL" value="image"
