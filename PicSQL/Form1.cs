@@ -99,7 +99,11 @@ namespace PicSQL
         private void tsbUploadFile_Click(object sender, EventArgs e)
         {
             bool result = false;
+            openFileDialog1.FileName = "";
             DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr != DialogResult.OK)
+                return;
+
             string strFullPath = openFileDialog1.FileName;
             string strFileName = openFileDialog1.SafeFileName;
 
@@ -384,7 +388,7 @@ namespace PicSQL
                 //string file = openFileDialog1.FileName;
 
                 SQLiteConnectionStringBuilder sqlCnnStrBld = new SQLiteConnectionStringBuilder();
-                sqlCnnStrBld.DataSource = @"C:\Users\SAURON\Desktop\IMAGES.db"; //@"D:\Visual Studio 2015\Projects\suleymangunel\suleymangunel\Databases\Blog.db"; // AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["dbDataSource_SQLite"];
+                sqlCnnStrBld.DataSource = ConfigurationManager.AppSettings["dbDataSource_SQLite"]; // AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["dbDataSource_SQLite"];
                 sqlCnnStrBld.Password = txtCurrentPassword.Text.Trim(); //ConfigurationManager.AppSettings["dbPassword_SQLite"].ToString();
                 sqlCnnStrBld.JournalMode = SQLiteJournalModeEnum.Persist;
                 sqlCnnStrBld.SyncMode = SynchronizationModes.Full;
