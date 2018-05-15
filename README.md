@@ -13,7 +13,7 @@ PicSQL need SQLite and MySQL references,you can add its from Nuget in Visual Stu
 
 Working with DB's you have set value of keys listed below.
 
-"dbDataSource_MSSQL" value=""       MS SQL Server's IP Address/URL.
+"dbDataSource_MSSQL" value=""       MS SQL Server's IP Address/URL <br/>
 "dbInitialCatalog_MSSQL" value=""   MS SQL DB name.
 "dbUserID_MSSQL" value=""
 "dbPassword_MSSQL" value=""
