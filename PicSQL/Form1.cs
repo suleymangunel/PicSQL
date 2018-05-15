@@ -22,6 +22,7 @@ namespace PicSQL
         public static string strSQLconn_MSSQL = "";
         public static string strSQLconn_SQLite = "";
         public static string strSQLconn_MySQL = "";
+        public static string strTableName = "";
 
         const int DBTYPE_NONE = -1;
         const int DBTYPE_MSSQL = 0;
@@ -162,8 +163,9 @@ namespace PicSQL
                 return;
             try
             {
+
                 string name = dataGridView1.CurrentRow.Cells["Name"].Value.ToString();
-                string strCMD = "SELECT * FROM Images WHERE Name='" + name + "';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='" + name + "';";
                 DataSet ds = new DataSet();
                 switch (DBTYPE)
                 {
@@ -242,7 +244,7 @@ namespace PicSQL
 
         public void OpenDatabase_MSSQL()
         {
-            string strCMD = "SELECT Name FROM Images;";
+            string strCMD = "SELECT Name FROM "+ strTableName + ";";
             DataSet ds = new DataSet();
             using (SqlConnection connDEO = new SqlConnection(strSQLconn_MSSQL))
             {
@@ -264,7 +266,7 @@ namespace PicSQL
 
         public void OpenDatabase_SQLite()
         {
-            string strCMD = "SELECT Name FROM Images;";
+            string strCMD = "SELECT Name FROM "+ strTableName + ";";
             DataSet ds = new DataSet();
             using (SQLiteConnection connDEO = new SQLiteConnection(strSQLconn_SQLite))
             {
@@ -286,7 +288,7 @@ namespace PicSQL
 
         public void OpenDatabase_MySQL()
         {
-            string strCMD = "SELECT Name FROM images;";
+            string strCMD = "SELECT Name FROM "+ strTableName + ";";
             DataSet ds = new DataSet();
             using (MySqlConnection connDEO = new MySqlConnection(strSQLconn_MySQL))
             {
@@ -372,6 +374,7 @@ namespace PicSQL
                 sqlCnnStrBld.Password = ConfigurationManager.AppSettings["dbPassword_MSSQL"].ToString();
                 strSQLconn_MSSQL = sqlCnnStrBld.ConnectionString;
                 sqlCnnStrBld.Clear();
+                strTableName= ConfigurationManager.AppSettings["dbImageTable_MSSQL"].ToString();
                 return true;
             }
             catch
@@ -396,6 +399,7 @@ namespace PicSQL
                 sqlCnnStrBld.PageSize = 4096; //512 katları, default:4096
                 strSQLconn_SQLite = sqlCnnStrBld.ConnectionString;
                 sqlCnnStrBld.Clear();
+                strTableName = ConfigurationManager.AppSettings["dbImageTable_SQLite"].ToString();
                 return true;
             }
             catch
@@ -416,6 +420,7 @@ namespace PicSQL
                 strSQLconn_MySQL = sqlCnnStrBld.ConnectionString;
                 sqlCnnStrBld.Pooling = false;
                 sqlCnnStrBld.Clear();
+                strTableName = ConfigurationManager.AppSettings["dbImageTable_MySQL"].ToString();
                 return true;
             }
             catch
@@ -428,7 +433,7 @@ namespace PicSQL
         {
             try
             {
-                string strCMD = "SELECT * FROM Images WHERE Name='1';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='1';";
                 using (SqlConnection connDEO = new SqlConnection(strSQLconn_MSSQL))
                 {
                     SqlDataAdapter sqlDA = new SqlDataAdapter(strCMD, connDEO);
@@ -461,7 +466,7 @@ namespace PicSQL
         {
             try
             {
-                string strCMD = "SELECT * FROM Images WHERE Name='1';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='1';";
                 using (SQLiteConnection connDEO = new SQLiteConnection(strSQLconn_SQLite))
                 {
                     SQLiteCommand cmd = new SQLiteCommand(strCMD, connDEO);
@@ -495,7 +500,7 @@ namespace PicSQL
         {
             try
             {
-                string strCMD = "SELECT * FROM images WHERE Name='1';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='1';";
                 using (MySqlConnection connDEO = new MySqlConnection(strSQLconn_MySQL))
                 {
                     MySqlDataAdapter sqlDA = new MySqlDataAdapter(strCMD,connDEO);
@@ -531,7 +536,7 @@ namespace PicSQL
                 string strImageName = dataGridView1.CurrentRow.Cells["Name"].Value.ToString();
                 byte[] bImageData;
 
-                string strCMD = "SELECT * FROM Images WHERE Name='" + strImageName + "';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='" + strImageName + "';";
                 using (SqlConnection connDEO = new SqlConnection(strSQLconn_MSSQL))
                 {
                     SqlDataAdapter sqlDA = new SqlDataAdapter(strCMD, connDEO);
@@ -553,7 +558,7 @@ namespace PicSQL
                 string strImageName = dataGridView1.CurrentRow.Cells["Name"].Value.ToString();
                 byte[] bImageData;
 
-                string strCMD = "SELECT * FROM Images WHERE Name='" + strImageName + "';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='" + strImageName + "';";
                 using (SQLiteConnection connDEO = new SQLiteConnection(strSQLconn_SQLite))
                 {
                     SQLiteDataAdapter sqlDA = new SQLiteDataAdapter(strCMD, connDEO);
@@ -576,7 +581,7 @@ namespace PicSQL
                 string strImageName = dataGridView1.CurrentRow.Cells["Name"].Value.ToString();
                 byte[] bImageData;
 
-                string strCMD = "SELECT * FROM Images WHERE Name='" + strImageName + "';";
+                string strCMD = "SELECT * FROM "+ strTableName + " WHERE Name='" + strImageName + "';";
                 using (MySqlConnection connDEO = new MySqlConnection(strSQLconn_MySQL))
                 {
                     MySqlDataAdapter sqlDA = new MySqlDataAdapter(strCMD, connDEO);
