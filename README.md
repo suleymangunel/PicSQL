@@ -16,9 +16,7 @@ Working with DB's you have set value of keys listed below.
 "dbDataSource_MSSQL" value=""       MS SQL Server's IP Address/URL.
 
 "dbInitialCatalog_MSSQL" value=""   MS SQL DB name.
-
 "dbUserID_MSSQL" value=""
-
 "dbPassword_MSSQL" value=""
 
 "dbImageTable_MSSQL" value="Image"
