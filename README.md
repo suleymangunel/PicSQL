@@ -11,14 +11,14 @@ This also defines your maximum uploadable file size.
 
 PicSQL need SQLite and MySQL references,you can add its from Nuget in Visual Studio.
 
-Working with DB's you have set attributes listed below.
+Working with DB's you have set value of keys listed below.
 
    "dbDataSource_MSSQL" value=""       MS SQL Server's IP Address/URL
    "dbInitialCatalog_MSSQL" value=""   MS SQL DB name
    "dbUserID_MSSQL" value=""
    "dbPassword_MSSQL" value=""
    "dbImageTable_MSSQL" value="Image"
-   "dbDataSource_SQLite" value="" />   SQLite file location & filename
+   "dbDataSource_SQLite" value=""      SQLite file location & filename
    "dbInitialCatalog_SQLite" value=""
    "dbPassword_SQLite" value=""
    "dbImageTable_SQLite" value="IMAGE"
